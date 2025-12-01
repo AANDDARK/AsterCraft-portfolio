@@ -11,13 +11,7 @@ type IconStageProps = {
   stageIndex?: number;
 };
 
-const IconStage = ({
-  className,
-  dots,
-  showLine = false,
-  lineVisible = false,
-  stageIndex = 0,
-}: IconStageProps) => {
+const IconStage = ({ className, dots, showLine = false, lineVisible = false, stageIndex = 0 }: IconStageProps) => {
   return (
     // circle
     <div
@@ -47,12 +41,7 @@ const IconStage = ({
         ))}
       </div>
 
-      {showLine && (
-        <LineConnecting
-          isVisible={lineVisible}
-          stageIndex={stageIndex}
-        />
-      )}
+      {showLine && <LineConnecting isVisible={lineVisible} stageIndex={stageIndex} />}
     </div>
   );
 };

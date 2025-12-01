@@ -1,14 +1,13 @@
-.env
-.env.production
-
 # Auto-generated files
 .react-router/
 docs/scss/
-
+pnpm-lock.yaml
 # Builds
 build/
 .vercel/
-
+.env
+.env.production
+pnpm-lock.yaml
 # Logs
 logs
 *.log

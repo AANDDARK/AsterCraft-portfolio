@@ -14,8 +14,6 @@ interface TextSlideUpProps {
 
   // motion
   delay?: number;
-
-  centrize: boolean;
 }
 
 export const TextSlideUp = ({

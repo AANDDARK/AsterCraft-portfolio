@@ -9,8 +9,7 @@
     "start": "react-router-serve ./build/serve/index.js",
     "typecheck": "react-router typegen && tsc",
     "lint": "eslint .",
-    "docs:scss": "sassdoc src/shared/styles --dest docs/scss",
-    "format": "prettier . --write"
+    "docs:scss": "sassdoc src/shared/styles --dest docs/scss"
   },
   "dependencies": {
     "@react-router/node": "^7.9.6",

@@ -8,11 +8,13 @@ import {
 } from "react-router";
 import { useTranslation } from "react-i18next";
 import type { Route } from "./+types/root";
+import { useEffect } from "react";
 
 import { Header } from "@widgets/header";
 import { Footer } from "@widgets/footer";
 import { StartProjectForm } from "@widgets/start-project-form";
 import { BurgerDropdownMenu } from "features/HeaderNavigation";
+import { GTAG_ID } from "@shared/config";
 
 import {
   getLocale,
@@ -22,7 +24,6 @@ import {
 
 import "./main.css";
 import "@shared/styles/index.scss";
-import { useEffect } from "react";
 
 export const middleware = [i18nextMiddleware];
 
@@ -92,6 +93,22 @@ export default function Root({ loaderData: { locale } }: Route.ComponentProps) {
   useEffect(() => {
     if (i18n.language !== locale) i18n.changeLanguage(locale);
   }, [locale, i18n]);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag("js", new Date());
+    gtag("config", GTAG_ID);
+
+    window.gtag = gtag;
+  }, []);
 
   return (
     <>
